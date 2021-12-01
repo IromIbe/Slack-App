@@ -1,25 +1,23 @@
 import React from "react";
 import "./App.css";
 import Header from "./components/Header";
+import styled from "styled-components";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Sidebar from "./components/Sidebar";
 
 function App() {
   return (
     <div className='App'>
       <Router>
         <>
-          <Routes>
-            {/* <Route path='/about'>
-              <About />
-            </Route>
-            <Route path='/users'>
-              <Users />
-            </Route> */}
-            <Route path='/' exact element={<Header />}>
-              {/* <h1>This is the HomePage</h1> */}
-            </Route>
-          </Routes>
+          <Header />
+          <AppBody>
+            <Sidebar />
+            <Routes>
+              <Route path='/' exact />
+            </Routes>
+          </AppBody>
         </>
       </Router>
     </div>
@@ -27,3 +25,7 @@ function App() {
 }
 
 export default App;
+const AppBody = styled.div`
+  display: flex;
+  height: 100vh;
+`;

@@ -34,7 +34,7 @@ const HeaderContainer = styled.div`
   color: white;
 `;
 const HeaderLeft = styled.div`
-  flex: auto.3;
+  flex: 0.3;
   display: flex;
   align-items: center;
 
