@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
+import Chat from "./components/Chat";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
           <AppBody>
             <Sidebar />
             <Routes>
-              <Route path='/' exact />
+              <Route path='/' exact element={<Chat />} />
             </Routes>
           </AppBody>
         </>
