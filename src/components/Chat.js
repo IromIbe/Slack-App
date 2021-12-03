@@ -24,7 +24,7 @@ function Chat() {
   );
 
   useEffect(() => {
-    chatRef.current?.scrollIntoView({
+    chatRef?.current?.scrollIntoView({
       behaviour: "smooth",
     });
   }, [roomId, loading]);
@@ -61,8 +61,8 @@ function Chat() {
                 />
               );
             })}
+            <ChatBottom ref={chatRef} />
           </ChatMessages>
-          <ChatButton ref={chatRef} />
           <ChatInput
             chatRef={chatRef}
             channelName={roomDetails?.data().name}
@@ -112,8 +112,8 @@ const HeaderRight = styled.div`
 `;
 const ChatMessages = styled.div``;
 
-const ChatButton = styled.div`
-  padding-bottom: 20px;
+const ChatBottom = styled.div`
+  padding-bottom: 200px;
 `;
 
 export default Chat;
