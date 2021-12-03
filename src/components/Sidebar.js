@@ -17,9 +17,13 @@ import { useCollection } from "react-firebase-hooks/firestore";
 import styled from "styled-components";
 import { db } from "../firebase";
 import SidebarOptions from "./SidebarOptions";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../firebase";
 
 function Sidebar() {
-  const [channels, loading, error] = useCollection(db.collection("rooms"));
+  const [user] = useAuthState(auth);
+
+  const [channels] = useCollection(db.collection("rooms"));
 
   return (
     <SidebarContainer>
@@ -29,7 +33,7 @@ function Sidebar() {
 
           <h3>
             <FiberManualRecord />
-            Ibe Irom
+            {user.displayName}
           </h3>
         </SidebarInfo>
         <Create />
